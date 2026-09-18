@@ -34,7 +34,7 @@ const quizData = [
       "All of the above"
     ],
     ans: 3,
-    clueImage: "movie/img2.jpg"
+    clueImage: "img2.jpg"
   },
 
   {
@@ -48,7 +48,7 @@ const quizData = [
       "None"
     ],
     ans: 2,
-    clueImage: "movie/img3.jpg"
+    clueImage: "img3.jpg"
   },
 
   {
@@ -70,7 +70,7 @@ print(x)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img4.jpg"
+    clueImage: "img4.jpg"
   },
 
   {
@@ -86,7 +86,7 @@ print(x)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img5.jpg",
+    clueImage: "img5.jpg",
 
     actualName: "sillunu oru kadhal",
 
@@ -119,7 +119,7 @@ print(x)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img6.jpg"
+    clueImage: "img6.jpg"
   },
 
   {
@@ -140,7 +140,7 @@ print(y + 5)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img7.jpg"
+    clueImage: "img7.jpg"
   },
 
   {
@@ -161,7 +161,7 @@ print(numbers)`,
     ],
 
     ans: 2,
-    clueImage: "movie/img8.jpg"
+    clueImage: "img8.jpg"
   },
 
   {
@@ -182,7 +182,7 @@ print(numbers)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img9.jpg"
+    clueImage: "img9.jpg"
   },
 
   {
@@ -203,7 +203,7 @@ print(numbers)`,
     ],
 
     ans: 2,
-    clueImage: "movie/img10.jpg",
+    clueImage: "img10.jpg",
 
     actualName: "96",
 
@@ -234,7 +234,7 @@ print(numbers)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img11.jpg"
+    clueImage: "img11.jpg"
   },
 
   {
@@ -254,7 +254,7 @@ for i in range(3):
     ],
 
     ans: 1,
-    clueImage: "movie/img12.jpg"
+    clueImage: "img12.jpg"
   },
 
   {
@@ -271,7 +271,7 @@ for i in range(3):
     ],
 
     ans: 1,
-    clueImage: "movie/img13.jpg"
+    clueImage: "img13.jpg"
   },
 
   {
@@ -288,7 +288,7 @@ for i in range(3):
     ],
 
     ans: 0,
-    clueImage: "movie/img14.jpg"
+    clueImage: "img14.jpg"
   },
 
   {
@@ -310,7 +310,7 @@ print(greet("John"))`,
     ],
 
     ans: 2,
-    clueImage: "movie/img15.jpg",
+    clueImage: "img15.jpg",
 
     actualName: "kaithi",
 
@@ -342,7 +342,7 @@ print(greet("John"))`,
     ],
 
     ans: 0,
-    clueImage: "movie/img16.jpg"
+    clueImage: "img16.jpg"
   },
 
   {
@@ -364,7 +364,7 @@ greet()`,
     ],
 
     ans: 1,
-    clueImage: "movie/img17.jpg"
+    clueImage: "img17.jpg"
   },
 
   {
@@ -381,7 +381,7 @@ greet()`,
     ],
 
     ans: 0,
-    clueImage: "movie/img18.jpg"
+    clueImage: "img18.jpg"
   },
 
   {
@@ -398,7 +398,7 @@ greet()`,
     ],
 
     ans: 0,
-    clueImage: "movie/img19.jpg"
+    clueImage: "img19.jpg"
   },
 
   {
@@ -418,7 +418,7 @@ print(squares)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img20.jpg",
+    clueImage: "img20.jpg",
 
     // IMPORTANT: MOVIE 4
     actualName: "mersal",
@@ -450,7 +450,7 @@ print(squares)`,
     ],
 
     ans: 0,
-    clueImage: "movie/img21.jpg"
+    clueImage: "img21.jpg"
   },
 
   {
@@ -467,7 +467,7 @@ print(squares)`,
     ],
 
     ans: 0,
-    clueImage: "movie/img22.jpg"
+    clueImage: "img22.jpg"
   },
 
   {
@@ -491,7 +491,7 @@ print(s.name)`,
     ],
 
     ans: 2,
-    clueImage: "movie/img23.jpg"
+    clueImage: "img23.jpg"
   },
 
   {
@@ -508,7 +508,7 @@ print(s.name)`,
     ],
 
     ans: 0,
-    clueImage: "movie/img24.jpg"
+    clueImage: "img24.jpg"
   },
 
   {
@@ -525,7 +525,7 @@ print(s.name)`,
     ],
 
     ans: 1,
-    clueImage: "movie/img25.jpg",
+    clueImage: "img25.jpg",
 
     // IMPORTANT: MOVIE 5
     actualName: "pa paandi",
