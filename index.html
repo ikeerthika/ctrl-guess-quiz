@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CTRL + GUESS | Tech Symposium Event</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <header class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+      CTRL + <span>GUESS</span>
+    </div>
+
+    <!-- Game Statistics -->
+    <div class="stats-bar">
+
+      <!-- Team -->
+      <div class="stat-box" id="team-display-box">
+        Team:
+        <span id="team-name-tag">Not Registered</span>
+      </div>
+
+      <!-- Current Movie -->
+      <div class="stat-box">
+        Movie:
+        <span id="current-movie-num">1</span>/5
+      </div>
+
+      <!-- Overall Progress -->
+      <div class="stat-box">
+        Progress:
+        <span id="current-q-num">1</span>/25
+      </div>
+
+      <!-- Timer -->
+      <div class="timer-box" id="timer">
+        00:00
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN CONTENT
+  ========================================================== -->
+
+  <main class="container">
+
+
+    <!-- =======================================================
+         REGISTRATION SCREEN
+    ======================================================== -->
+
+    <section
+      id="register-card"
+      class="card"
+    >
+
+      <!-- Event Badge -->
+      <div class="event-badge">
+        TECHNICAL SYMPOSIUM REGISTRATION
+      </div>
+
+
+      <!-- Main Heading -->
+      <h1 class="main-title">
+        REGISTER YOUR TEAM
+      </h1>
+
+
+      <!-- Description -->
+      <p class="subtitle">
+        Enter your team details to launch the Ctrl + Guess challenge.
+      </p>
+
+
+      <!-- Registration Form -->
+      <form
+        id="reg-form"
+        onsubmit="handleRegistration(event)"
+      >
+
+        <!-- ================= TEAM NAME ================= -->
+
+        <div class="input-group">
+
+          <label for="reg-team-name">
+            Team Name
+            <span class="req">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="reg-team-name"
+            name="teamName"
+            placeholder="Enter your team name"
+            autocomplete="off"
+            required
+          >
+
+        </div>
+
+
+        <!-- ================= MEMBER 1 ================= -->
+
+        <div class="input-group">
+
+          <label for="reg-member-1">
+            Team Member 1 (Lead)
+            <span class="req">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="reg-member-1"
+            name="member1"
+            placeholder="Enter Member 1 Name"
+            autocomplete="off"
+            required
+          >
+
+        </div>
+
+
+        <!-- ================= MEMBER 2 ================= -->
+
+        <div class="input-group">
+
+          <label for="reg-member-2">
+            Team Member 2
+            <span class="opt">(Optional)</span>
+          </label>
+
+          <input
+            type="text"
+            id="reg-member-2"
+            name="member2"
+            placeholder="Enter Member 2 Name"
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- ================= EVENT RULES ================= -->
+
+        <div class="rules">
+
+          <h3>
+            EVENT PROTOCOL:
+          </h3>
+
+          <ul>
+
+            <li>
+              ⚡
+              <strong>5 Movies | 25 Questions:</strong>
+              5 technical questions per movie
+              (2 Hard → 2 Medium → 1 Easy).
+            </li>
+
+            <li>
+              🧩
+              <strong>Dynamic Clues:</strong>
+              Correct answers unlock visual clue pieces.
+            </li>
+
+            <li>
+              🚫
+              <strong>One-Time Attempt:</strong>
+              Single attempt per question. No backward navigation.
+            </li>
+
+            <li>
+              🛡️
+              <strong>Anti-Cheat Active:</strong>
+              Page refresh safely keeps your current progress.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- ================= START BUTTON ================= -->
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          START CHALLENGE
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- =======================================================
+         QUESTION SCREEN
+    ======================================================== -->
+
+    <section
+      id="quiz-card"
+      class="card hidden"
+    >
+
+      <!-- Quiz Header -->
+      <div class="quiz-header">
+
+        <!-- Difficulty -->
+        <span
+          class="badge"
+          id="diff-badge"
+        >
+          HARD
+        </span>
+
+        <!-- Question Tracker -->
+        <span
+          class="q-tracker"
+          id="q-tracker-text"
+        >
+          Question 1 of 5 for Movie #1
+        </span>
+
+      </div>
+
+
+      <!-- Question -->
+      <h2
+        id="question-text"
+        class="question-title"
+      >
+        Question text goes here...
+      </h2>
+
+
+      <!-- Answer Options -->
+      <div
+        class="options-grid"
+        id="options-container"
+      >
+        <!-- JavaScript dynamically adds options here -->
+      </div>
+
+
+      <!-- Inline Feedback -->
+      <div
+        id="inline-feedback"
+        class="feedback-banner hidden"
+        role="alert"
+      ></div>
+
+    </section>
+
+
+    <!-- =======================================================
+         MOVIE CLUE + GUESS SCREEN
+    ======================================================== -->
+
+    <section
+      id="clue-card"
+      class="card hidden center-content"
+    >
+
+      <!-- Clue Header -->
+      <div class="unlocked-header">
+
+        <h2>
+          DECODE MOVIE #
+          <span id="clue-movie-num">1</span>
+        </h2>
+
+        <p class="subtitle">
+          Unlocked clue images from your correct answers:
+        </p>
+
+      </div>
+
+
+      <!-- ================= CLUE IMAGES ================= -->
+
+      <div
+        class="clues-grid"
+        id="unlocked-clues-grid"
+      >
+        <!-- JavaScript dynamically inserts clue images -->
+      </div>
+
+
+      <!-- ================= MOVIE GUESS FORM ================= -->
+
+      <form
+        id="movie-guess-form"
+        class="guess-form"
+        onsubmit="submitMovieGuess(event)"
+      >
+
+        <input
+          type="text"
+          id="movie-input"
+          name="movieGuess"
+          placeholder="Type movie name..."
+          autocomplete="off"
+          required
+        >
+
+        <button
+          type="submit"
+          class="btn btn-success"
+        >
+          SUBMIT MOVIE GUESS
+        </button>
+
+      </form>
+
+
+      <!-- Guess Feedback -->
+      <p
+        id="guess-feedback"
+        class="feedback-msg"
+        role="alert"
+      ></p>
+
+    </section>
+
+
+    <!-- =======================================================
+         FINAL SCORECARD
+    ======================================================== -->
+
+    <section
+      id="score-card"
+      class="card hidden center-content"
+    >
+
+      <!-- Trophy -->
+      <div class="trophy-icon">
+        🏆
+      </div>
+
+
+      <!-- Completion Heading -->
+      <h1 class="main-title">
+        CHALLENGE COMPLETED!
+      </h1>
+
+
+      <!-- Team Information -->
+      <p
+        class="subtitle"
+        id="final-team-info"
+      >
+        Team: --
+      </p>
+
+
+      <!-- Results -->
+      <div class="results-grid">
+
+
+        <!-- ================= TOTAL TIME ================= -->
+
+        <div class="res-box">
+
+          <div class="res-label">
+            Total Time Elapsed
+          </div>
+
+          <div
+            class="res-val"
+            id="final-time"
+          >
+            00:00
+          </div>
+
+        </div>
+
+
+        <!-- ================= CORRECT ANSWERS ================= -->
+
+        <div class="res-box">
+
+          <div class="res-label">
+            Correct Answers
+          </div>
+
+          <div
+            class="res-val"
+            id="final-tech-score"
+          >
+            0/25
+          </div>
+
+        </div>
+
+
+        <!-- ================= FINAL SCORE ================= -->
+
+        <div class="res-box highlight">
+
+          <div class="res-label">
+            Final Score (Out of 100)
+          </div>
+
+          <div
+            class="res-val"
+            id="final-score"
+          >
+            0 / 100
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Completion Message -->
+      <p class="completion-note">
+        Thank you for participating!
+        Please inform the event admin to record your score.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       CLUE UNLOCK MODAL
+  ========================================================== -->
+
+  <div
+    id="clue-modal"
+    class="modal-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="clue-modal-title"
+  >
+
+    <div class="modal-card center-content">
+
+
+      <!-- Success Message -->
+      <div class="success-badge">
+        ✨ CORRECT ANSWER! CLUE UNLOCKED
+      </div>
+
+
+      <!-- Modal Heading -->
+      <h2
+        id="clue-modal-title"
+        class="modal-subtitle"
+      >
+        Great Job!
+      </h2>
+
+
+      <p class="modal-sub subtitle">
+        Here is your unlocked clue piece:
+      </p>
+
+
+      <!-- ================= CLUE IMAGE ================= -->
+
+      <div class="modal-image-wrapper">
+
+        <img
+          id="modal-clue-img"
+          src=""
+          alt="Unlocked clue"
+        >
+
+      </div>
+
+
+      <!-- Continue Button -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        onclick="closeClueModal()"
+      >
+        CONTINUE TO NEXT
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>
