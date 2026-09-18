@@ -20,7 +20,7 @@ const quizData = [
       "A web browser"
     ],
     ans: 1,
-    clueImage: "movie/img1.jpg"
+    clueImage: "img1.jpg"
   },
 
   {
