@@ -539,7 +539,10 @@ print(s.name)`,
       "papandi",
       "PA PAANDI",
       "PAPAANDI",
-      "PAPANDI"
+      "PAPANDI",
+       "power Pandi",
+       "POWER PANDI",
+      "powerpandi",
     ]
   }
 
